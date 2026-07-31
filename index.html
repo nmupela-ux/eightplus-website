@@ -18,7 +18,7 @@
             line-height: 1.6;
         }
 
-        /* Container that keeps content aligned and centered */
+        /* Container for content alignment */
         .container {
             max-width: 1140px;
             margin: 0 auto;
@@ -186,10 +186,10 @@
             letter-spacing: -0.5px;
         }
         .statement-text span {
-            color: #666666; /* Gives a slick high-end dimmed effect to part of the sentence */
+            color: #666666; /* High-end dimmed typographic contrast */
         }
 
-        /* 5. CAPABILITIES GRID SECTION (UPGRADED WITH MEDIA) */
+        /* 5. CAPABILITIES GRID SECTION */
         .section-padding {
             padding: 100px 0;
             border-bottom: 1px solid #1a1a1a;
@@ -208,7 +208,7 @@
             background-color: #121212;
             border: 1px solid #222222;
             border-radius: 8px;
-            overflow: hidden; /* Keeps zoomed photo inside the rounded corners */
+            overflow: hidden;
             transition: border-color 0.3s ease, transform 0.3s ease;
             display: flex;
             flex-direction: column;
@@ -234,7 +234,7 @@
             transition: transform 0.5s ease, opacity 0.5s ease;
         }
         .card:hover .card-image {
-            transform: scale(1.08); /* Subtle camera zoom effect on hover */
+            transform: scale(1.08); /* Camera zoom effect on hover */
             opacity: 1;
         }
 
@@ -356,29 +356,50 @@
         </div>
     </section>
 
-    <!-- Section 2: Capabilities -->
+    <!-- Section 2: Capabilities with Card Photography -->
     <section id="capabilities" class="section-padding">
         <div class="container">
             <div class="kicker">Core Practice Areas</div>
             <h2 class="section-title">Strategic Capabilities</h2>
             
             <div class="grid">
+                <!-- Card 1 -->
                 <div class="card">
-                    <div class="card-num">01</div>
-                    <h3>Corporate Narrative</h3>
-                    <p>Refining complex leadership vision into sharp, undeniable brand positioning and core message frameworks.</p>
+                    <div class="card-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80" alt="Corporate Narrative" class="card-image">
+                        <div class="card-image-overlay"></div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-num">01 / NARRATIVE ARCHITECTURE</div>
+                        <h3>Corporate Narrative</h3>
+                        <p>Refining complex leadership vision into sharp, undeniable brand positioning and core message frameworks.</p>
+                    </div>
                 </div>
                 
+                <!-- Card 2 -->
                 <div class="card">
-                    <div class="card-num">02</div>
-                    <h3>Strategic Communications</h3>
-                    <p>Precision public relations and communications design to navigate competitive, high-stakes sector environments.</p>
+                    <div class="card-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80" alt="Strategic Communications" class="card-image">
+                        <div class="card-image-overlay"></div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-num">02 / PUBLIC AFFAIRS</div>
+                        <h3>Strategic Communications</h3>
+                        <p>Precision public relations and communications design to navigate competitive, high-stakes sector environments.</p>
+                    </div>
                 </div>
                 
+                <!-- Card 3 -->
                 <div class="card">
-                    <div class="card-num">03</div>
-                    <h3>Executive Positioning</h3>
-                    <p>Building authoritative, respected presences for CEOs, founders, and organizations driving industry transformation.</p>
+                    <div class="card-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80" alt="Executive Positioning" class="card-image">
+                        <div class="card-image-overlay"></div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-num">03 / LEADERSHIP BRANDING</div>
+                        <h3>Executive Positioning</h3>
+                        <p>Building authoritative, respected presences for CEOs, founders, and organizations driving industry transformation.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -389,7 +410,7 @@
         <div class="container">
             <div class="kicker">Get In Touch</div>
             <h2>Ready to command your narrative?</h2>
-            <p>Connect with our team to discuss strategic corporate communications and executive positioning for your organization.</p>
+            <p>Connect with our team to discuss strategic corporate communications and executive positioning for your organisation.</p>
             <a href="mailto:hello@eightplusmedia.com" class="btn">Initiate a Conversation</a>
         </div>
     </section>
