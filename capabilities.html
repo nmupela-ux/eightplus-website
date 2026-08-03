@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capabilities | Eightplus Media</title>
+    <style>
+        /* 1. BASE RESET & STYLES */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            color: #f0f0f0;
+            background-color: #0a0a0a;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        /* 2. NAVIGATION BAR */
+        .navbar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 28px 40px;
+            z-index: 100;
+            background: linear-gradient(to bottom, rgba(10,10,10,0.9), transparent);
+        }
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: #ffffff;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+        .logo span {
+            color: #888888;
+            font-weight: 400;
+        }
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            opacity: 0.8;
+            transition: opacity 0.2s ease;
+        }
+        .nav-links a:hover, .nav-links a.active {
+            opacity: 1;
+            border-bottom: 2px solid #ffffff;
+            padding-bottom: 4px;
+        }
+
+        /* 3. PAGE HEADER */
+        .page-header {
+            padding: 180px 0 80px 0;
+            border-bottom: 1px solid #1a1a1a;
+            background: linear-gradient(180deg, #111111 0%, #0a0a0a 100%);
+        }
+        .kicker {
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 2.5px;
+            font-weight: 700;
+            color: #888888;
+            margin-bottom: 16px;
+        }
+        .page-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            letter-spacing: -1.5px;
+            color: #ffffff;
+            margin-bottom: 24px;
+            max-width: 800px;
+            line-height: 1.1;
+        }
+        .page-intro {
+            font-size: 1.3rem;
+            color: #a0a0a0;
+            max-width: 680px;
+            font-weight: 400;
+        }
+
+        /* 4. PRACTICE AREA SECTIONS */
+        .practice-section {
+            padding: 90px 0;
+            border-bottom: 1px solid #1a1a1a;
+        }
+        .practice-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .practice-grid.reverse {
+            direction: rtl;
+        }
+        .practice-grid.reverse .practice-text {
+            direction: ltr;
+        }
+
+        .practice-image-box {
+            position: relative;
+            width: 100%;
+            height: 380px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #222;
+        }
+        .practice-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.85;
+            transition: opacity 0.3s ease;
+        }
+        .practice-image-box:hover .practice-image {
+            opacity: 1;
+        }
+
+        .practice-num {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #888888;
+            letter-spacing: 1.5px;
+            margin-bottom: 12px;
+        }
+        .practice-text h2 {
+            font-size: 2.2rem;
+            color: #ffffff;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+        .practice-text p {
+            font-size: 1.1rem;
+            color: #a0a0a0;
+            margin-bottom: 24px;
+            line-height: 1.7;
+        }
+
+        /* Deliverables Bullet List */
+        .deliverables-title {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #ffffff;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+        .deliverables-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        .deliverables-list li {
+            color: #888888;
+            font-size: 0.95rem;
+            position: relative;
+            padding-left: 16px;
+        }
+        .deliverables-list li::before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: #ffffff;
+        }
+
+        /* 5. CALL TO ACTION & FOOTER */
+        .cta-section {
+            padding: 100px 0 80px 0;
+        }
+        .cta-section h2 {
+            font-size: 2.8rem;
+            margin-bottom: 16px;
+            letter-spacing: -1px;
+        }
+        .cta-section p {
+            font-size: 1.15rem;
+            color: #a0a0a0;
+            margin-bottom: 32px;
+            max-width: 600px;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #ffffff;
+            color: #0a0a0a;
+            text-decoration: none;
+            padding: 16px 32px;
+            font-weight: 600;
+            border-radius: 4px;
+        }
+
+        footer {
+            padding: 40px 0;
+            border-top: 1px solid #1a1a1a;
+            color: #555555;
+            font-size: 0.9rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Mobile responsiveness adjustments */
+        @media (max-width: 768px) {
+            .practice-grid, .practice-grid.reverse {
+                grid-template-columns: 1fr;
+                direction: ltr;
+            }
+            .page-title {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Navigation Header -->
+    <nav class="navbar">
+        <a href="index.html" class="logo">Eightplus <span>Media</span></a>
+        <ul class="nav-links">
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="capabilities.html" class="active">Capabilities</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <div class="kicker">Core Practice Areas</div>
+            <h1 class="page-title">Capabilities built for high-stakes positioning.</h1>
+            <p class="page-intro">We design narrative architecture, execute targeted public relations, and establish executive authority for leaders operating in complex environments.</p>
+        </div>
+    </header>
+
+    <!-- Practice 1: Corporate Narrative -->
+    <section class="practice-section">
+        <div class="container">
+            <div class="practice-grid">
+                <div class="practice-text">
+                    <div class="practice-num">01 / NARRATIVE ARCHITECTURE</div>
+                    <h2>Corporate Narrative & Positioning</h2>
+                    <p>We translate intricate executive vision into crisp, high-impact brand frameworks. Whether navigating market expansion or refining market perception, we build positioning that commands immediate focus and industry credibility.</p>
+                    
+                    <div class="deliverables-title">Key Capabilities</div>
+                    <ul class="deliverables-list">
+                        <li>Core Messaging Frameworks</li>
+                        <li>Brand Positioning Strategy</li>
+                        <li>Key Message Architecture</li>
+                        <li>Stakeholder Mapping</li>
+                    </ul>
+                </div>
+                <div class="practice-image-box">
+                    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80" alt="Corporate Narrative" class="practice-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Practice 2: Strategic Communications -->
+    <section class="practice-section">
+        <div class="container">
+            <div class="practice-grid reverse">
+                <div class="practice-text">
+                    <div class="practice-num">02 / PUBLIC AFFAIRS & PR</div>
+                    <h2>Strategic Communications</h2>
+                    <p>Precision communications designed for high-profile sector environments. We ensure every touchpoint—from corporate announcements to stakeholder engagements—builds long-term reputation and strategic clarity.</p>
+                    
+                    <div class="deliverables-title">Key Capabilities</div>
+                    <ul class="deliverables-list">
+                        <li>Media Relations Strategy</li>
+                        <li>Corporate Reputation</li>
+                        <li>Crisis Preparedness</li>
+                        <li>Stakeholder Communications</li>
+                    </ul>
+                </div>
+                <div class="practice-image-box">
+                    <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80" alt="Strategic Communications" class="practice-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Practice 3: Executive Positioning -->
+    <section class="practice-section">
+        <div class="container">
+            <div class="practice-grid">
+                <div class="practice-text">
+                    <div class="practice-num">03 / LEADERSHIP BRANDING</div>
+                    <h2>Executive Thought Leadership</h2>
+                    <p>Building authoritative public presences for founders, C-suite leaders, and key stakeholders. We position executive leaders as trusted industry voices through tailored platforms, published commentary, and keynote engagements.</p>
+                    
+                    <div class="deliverables-title">Key Capabilities</div>
+                    <ul class="deliverables-list">
+                        <li>Executive Platform Strategy</li>
+                        <li>Speechwriting & Articles</li>
+                        <li>Industry Board Positioning</li>
+                        <li>Profile & Reputation Control</li>
+                    </ul>
+                </div>
+                <div class="practice-image-box">
+                    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80" alt="Executive Positioning" class="practice-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA & Footer -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="kicker">Get In Touch</div>
+            <h2>Need strategic narrative support?</h2>
+            <p>Let's discuss how we can tailor our practice areas to support your organization's goals.</p>
+            <a href="mailto:hello@eightplusmedia.com" class="btn">Initiate a Conversation</a>
+        </div>
+    </section>
+
+    <footer class="container">
+        <div>&copy; 2026 Eightplus Media. All rights reserved.</div>
+        <div>Lusaka, Zambia</div>
+    </footer>
+
+</body>
+</html>
