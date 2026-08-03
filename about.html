@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Eightplus Media</title>
+    <style>
+        /* 1. RESET & BASE DARK STYLES */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            color: #f0f0f0;
+            background-color: #0a0a0a;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        /* 2. NAVIGATION BAR */
+        .navbar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 28px 40px;
+            z-index: 100;
+            background: linear-gradient(to bottom, rgba(10,10,10,0.9), transparent);
+        }
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: #ffffff;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+        .logo span {
+            color: #888888;
+            font-weight: 400;
+        }
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            opacity: 0.8;
+            transition: opacity 0.2s ease;
+        }
+        .nav-links a:hover, .nav-links a.active {
+            opacity: 1;
+            border-bottom: 2px solid #ffffff;
+            padding-bottom: 4px;
+        }
+
+        /* 3. PAGE HEADER */
+        .page-header {
+            padding: 180px 0 90px 0;
+            border-bottom: 1px solid #1a1a1a;
+            background: linear-gradient(180deg, #111111 0%, #0a0a0a 100%);
+        }
+        .kicker {
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 2.5px;
+            font-weight: 700;
+            color: #888888;
+            margin-bottom: 16px;
+        }
+        .page-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            letter-spacing: -1.5px;
+            color: #ffffff;
+            margin-bottom: 24px;
+            max-width: 850px;
+            line-height: 1.1;
+        }
+        .page-intro {
+            font-size: 1.3rem;
+            color: #a0a0a0;
+            max-width: 760px;
+            font-weight: 400;
+            line-height: 1.5;
+        }
+
+        /* SECTION STYLES */
+        .section-padding {
+            padding: 100px 0;
+            border-bottom: 1px solid #1a1a1a;
+        }
+        .section-title {
+            font-size: 2.2rem;
+            letter-spacing: -0.8px;
+            margin-bottom: 24px;
+            color: #ffffff;
+        }
+
+        /* GRID LAYOUTS */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        /* CARDS & CONTENT BLOCKS */
+        .card {
+            background-color: #121212;
+            border: 1px solid #222222;
+            border-radius: 8px;
+            padding: 40px;
+        }
+        .card h3 {
+            font-size: 1.4rem;
+            color: #ffffff;
+            margin-bottom: 12px;
+        }
+        .card p {
+            color: #a0a0a0;
+            font-size: 0.98rem;
+            line-height: 1.6;
+        }
+
+        /* LEADERSHIP SECTION */
+        .leadership-card {
+            background-color: #121212;
+            border: 1px solid #222222;
+            border-radius: 8px;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 320px 1fr;
+        }
+        .leadership-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            min-height: 320px;
+            background-color: #1a1a1a;
+        }
+        .leadership-info {
+            padding: 48px;
+        }
+        .leadership-role {
+            color: #888888;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        /* CODE OF CONDUCT / COMMITMENTS */
+        .policy-list {
+            list-style: none;
+            margin-top: 24px;
+        }
+        .policy-list li {
+            position: relative;
+            padding-left: 28px;
+            margin-bottom: 16px;
+            color: #a0a0a0;
+            font-size: 1rem;
+        }
+        .policy-list li::before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+        footer {
+            padding: 40px 0;
+            border-top: 1px solid #1a1a1a;
+            color: #555555;
+            font-size: 0.9rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        @media (max-width: 850px) {
+            .grid-2, .leadership-card {
+                grid-template-columns: 1fr;
+            }
+            .page-title {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Header -->
+    <nav class="navbar">
+        <a href="index.html" class="logo">Eightplus <span>Media</span></a>
+        <ul class="nav-links">
+            <li><a href="about.html" class="active">About</a></li>
+            <li><a href="capabilities.html">Capabilities</a></li>
+            <li><a href="academy.html">Academy</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <div class="kicker">Who We Are</div>
+            <h1 class="page-title">Building trust, shaping narratives, and protecting institutional reputation.</h1>
+            <p class="page-intro">Eightplus Media is an independent strategic corporate communications and public relations agency. We counsel executive leaders, corporate entities, and institutions navigating complex, high-stakes environments across emerging markets.</p>
+        </div>
+    </header>
+
+    <!-- Mission & Values -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="kicker">Core Principles</div>
+            <h2 class="section-title">Mission & Values</h2>
+            <div class="grid-3">
+                <div class="card">
+                    <h3>Integrity & Truth</h3>
+                    <p>In an age of rapid information flow, truth is the ultimate risk management strategy. We ground all corporate communication in rigor, accuracy, and strategic integrity.</p>
+                </div>
+                <div class="card">
+                    <h3>Intellectual Rigor</h3>
+                    <p>We blend critical communication theories with real-time market dynamics, ensuring our counsel goes beyond surface execution to address core institutional challenges.</p>
+                </div>
+                <div class="card">
+                    <h3>Proactive Governance</h3>
+                    <p>Reputation is protected before crises occur. We build robust monitoring structures and narrative frameworks that safeguard brand equity over the long term.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- History & Serving Our Clients -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="grid-2">
+                <div>
+                    <div class="kicker">Our Heritage</div>
+                    <h2 class="section-title">Our History</h2>
+                    <p style="color: #a0a0a0; font-size: 1.05rem; line-height: 1.7; margin-bottom: 20px;">
+                        Founded in Lusaka, Zambia, Eightplus Media was established to address the growing demand for specialized, high-tier corporate communications counsel across regional markets.
+                    </p>
+                    <p style="color: #a0a0a0; font-size: 1.05rem; line-height: 1.7;">
+                        From counsel on cross-border financial systems and fintech narrative building to executive positioning and multi-stakeholder advocacy, our focus has remained fixed on delivering clear, measurable influence where communication meets business policy.
+                    </p>
+                </div>
+                <div>
+                    <div class="kicker">Partner Ecosystem</div>
+                    <h2 class="section-title">Serving Our Clients</h2>
+                    <p style="color: #a0a0a0; font-size: 1.05rem; line-height: 1.7; margin-bottom: 20px;">
+                        We serve C-suite executives, sector peak bodies, financial services firms, and growing corporate enterprises. Our client-centric approach ensures direct senior partner involvement on every engagement.
+                    </p>
+                    <ul class="policy-list">
+                        <li>Tailored narrative architecture for complex market rollouts</li>
+                        <li>Embedded crisis management and real-time truth monitoring</li>
+                        <li>Executive media coaching and international positioning</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="kicker">Executive Direction</div>
+            <h2 class="section-title">Leadership</h2>
+            <div class="leadership-card">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80" alt="Founder & Principal Consultant" class="leadership-img">
+                <div class="leadership-info">
+                    <div class="leadership-role">Founder & Principal Consultant</div>
+                    <h3 style="font-size: 1.8rem; color: #ffffff; margin-bottom: 16px;">Ndulwa Rachel Mupela</h3>
+                    <p style="color: #a0a0a0; font-size: 1rem; line-height: 1.6; margin-bottom: 20px;">
+                        Ndulwa Rachel Mupela leads Eightplus Media with an extensive background in strategic corporate communications, public relations, and narrative architecture.
+                    </p>
+                    <p style="color: #a0a0a0; font-size: 1rem; line-height: 1.6;">
+                        She has advised leading organizations across financial technology, sector associations, and media publishing, specializing in crisis preparedness, executive authority, and reputation governance.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Governance, Code of Conduct & Climate Commitments -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="grid-2">
+                <div>
+                    <div class="kicker">Governance & Ethics</div>
+                    <h2 class="section-title">Code of Conduct</h2>
+                    <p style="color: #a0a0a0; font-size: 1rem; line-height: 1.6;">
+                        Eightplus Media operates under a strict code of ethics aligned with global professional communication standards (CIPR & IABC). We hold ourselves to uncompromising principles of transparency, confidentiality, and anti-misinformation.
+                    </p>
+                    <ul class="policy-list">
+                        <li>Strict adherence to factual integrity and verifiable disclosures</li>
+                        <li>Zero-tolerance policy regarding deceptive public relations tactics</li>
+                        <li>Rigorous data protection and client confidentiality standards</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="kicker">ESG & Sustainability</div>
+                    <h2 class="section-title">Climate & ESG Commitments</h2>
+                    <p style="color: #a0a0a0; font-size: 1rem; line-height: 1.6;">
+                        We believe strategic communication plays a vital role in accelerating sustainable economic transition. Eightplus Media is committed to responsible environmental stewardship within our operations and advisory work.
+                    </p>
+                    <ul class="policy-list">
+                        <li>Digital-first operations prioritizing minimal resource footprints</li>
+                        <li>Pro bono communications support for regional environmental initiatives</li>
+                        <li>Advising corporate clients on transparent, non-greenwashing ESG reporting</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="container">
+        <div>&copy; 2026 Eightplus Media. All rights reserved.</div>
+        <div>Lusaka, Zambia</div>
+    </footer>
+
+</body>
+</html>
