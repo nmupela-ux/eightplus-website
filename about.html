@@ -4,116 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us | Eightplus Media</title>
+    
+    <!-- 1. LINK TO EXTERNAL SHARED STYLESHEET -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- 2. PAGE-SPECIFIC STYLES ONLY -->
     <style>
-        /* 1. RESET & BASE DARK STYLES */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            color: #f0f0f0;
-            /* FIX 1: Changed background-color to background */
-            background: linear-gradient(180deg, #05080D 0%, #09131F 60%, #102033 100%);
-            background-attachment: fixed;
-            line-height: 1.6;
-        }
-        .container {
-            max-width: 1140px;
-            margin: 0 auto;
-            padding: 0 32px;
-        }
-
-        /* 2. NAVIGATION BAR STYLES */
-        .navbar {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 28px 40px;
-            z-index: 100;
-            background: linear-gradient(to bottom, rgba(5, 8, 13, 0.9), transparent);
-        }
-        .logo {
-            font-size: 1.3rem;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-            color: #ffffff;
-            text-decoration: none;
-            text-transform: uppercase;
-        }
-        .logo span {
-            color: #888888;
-            font-weight: 400;
-        }
-        .nav-links {
-            display: flex;
-            gap: 32px;
-            list-style: none;
-        }
-        .nav-links a {
-            color: #ffffff;
-            text-decoration: none;
-            font-size: 0.95rem;
-            font-weight: 500;
-            opacity: 0.8;
-            transition: opacity 0.2s ease;
-        }
-        .nav-links a:hover, .nav-links a.active {
-            opacity: 1;
-            border-bottom: 2px solid #ffffff;
-            padding-bottom: 4px;
-        }
-
-        /* 3. PAGE HEADER */
+        /* Page Header */
         .page-header {
-            padding: 180px 0 90px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            /* FIX 2: Made header background transparent so the main body gradient shows through */
-            background: transparent;
-        }
-        .kicker {
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            letter-spacing: 2.5px;
-            font-weight: 700;
-            color: #888888;
-            margin-bottom: 16px;
+            padding: 120px 0 60px 0;
+            border-bottom: 1px solid var(--border-color);
+            background-color: var(--bg-surface);
         }
         .page-title {
-            font-size: 3.5rem;
+            font-size: 3.2rem;
             font-weight: 700;
             letter-spacing: -1.5px;
-            color: #ffffff;
+            color: var(--text-dark);
             margin-bottom: 24px;
             max-width: 850px;
-            line-height: 1.1;
+            line-height: 1.15;
         }
         .page-intro {
-            font-size: 1.3rem;
-            color: #a0a0a0;
+            font-size: 1.25rem;
+            color: var(--text-primary);
             max-width: 760px;
             font-weight: 400;
-            line-height: 1.5;
+            line-height: 1.6;
         }
 
-        /* SECTION STYLES */
-        .section-padding {
-            padding: 100px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-        }
-        .section-title {
-            font-size: 2.2rem;
-            letter-spacing: -0.8px;
-            margin-bottom: 24px;
-            color: #ffffff;
-        }
-
-        /* GRID LAYOUTS */
+        /* Grid Layouts */
         .grid-2 {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -123,51 +43,56 @@
         .grid-3 {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
+            gap: 32px;
             margin-top: 40px;
         }
 
-        /* CARDS & CONTENT BLOCKS */
+        /* Cards */
         .card {
-            background-color: rgba(18, 18, 18, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background-color: var(--bg-surface);
+            border: 1px solid var(--border-color);
             border-radius: 8px;
             padding: 40px;
-            backdrop-filter: blur(8px);
+            box-shadow: 0 4px 12px rgba(50, 75, 102, 0.04);
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-royal);
         }
         .card h3 {
             font-size: 1.4rem;
-            color: #ffffff;
+            color: var(--text-dark);
             margin-bottom: 12px;
         }
         .card p {
-            color: #a0a0a0;
+            color: var(--text-primary);
             font-size: 0.98rem;
             line-height: 1.6;
         }
 
-        /* LEADERSHIP SECTION */
+        /* Leadership Card */
         .leadership-card {
-            background-color: rgba(18, 18, 18, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background-color: var(--bg-surface);
+            border: 1px solid var(--border-color);
             border-radius: 8px;
             overflow: hidden;
             display: grid;
             grid-template-columns: 320px 1fr;
-            backdrop-filter: blur(8px);
+            box-shadow: 0 4px 12px rgba(50, 75, 102, 0.04);
         }
         .leadership-img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             min-height: 320px;
-            background-color: #1a1a1a;
+            background-color: var(--bg-dark);
         }
         .leadership-info {
             padding: 48px;
         }
         .leadership-role {
-            color: #888888;
+            color: var(--accent-royal);
             text-transform: uppercase;
             font-size: 0.85rem;
             letter-spacing: 1.5px;
@@ -175,7 +100,7 @@
             margin-bottom: 8px;
         }
 
-        /* CODE OF CONDUCT / COMMITMENTS */
+        /* Lists */
         .policy-list {
             list-style: none;
             margin-top: 24px;
@@ -184,25 +109,15 @@
             position: relative;
             padding-left: 28px;
             margin-bottom: 16px;
-            color: #a0a0a0;
+            color: var(--text-primary);
             font-size: 1rem;
         }
         .policy-list li::before {
             content: "—";
             position: absolute;
             left: 0;
-            color: #ffffff;
+            color: var(--accent-royal);
             font-weight: bold;
-        }
-
-        footer {
-            padding: 40px 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #777777;
-            font-size: 0.9rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
         }
 
         @media (max-width: 850px) {
@@ -217,7 +132,7 @@
 </head>
 <body>
 
-    <!-- Navigation Header -->
+    <!-- Navigation Header Container -->
     <div id="navbar-container"></div>
 
     <!-- Page Header -->
@@ -258,17 +173,17 @@
                 <div>
                     <div class="kicker">Our Heritage</div>
                     <h2 class="section-title">Our History</h2>
-                    <p style="color: #a0a0a0; font-size: 1.05rem; line-height: 1.7; margin-bottom: 20px;">
+                    <p style="color: var(--text-primary); font-size: 1.05rem; line-height: 1.7; margin-bottom: 20px;">
                         Founded in Lusaka, Zambia, Eightplus Media was established to address the growing demand for specialized, high-tier corporate communications counsel across regional markets.
                     </p>
-                    <p style="color: #a0a0a0; font-size: 1.05rem; line-height: 1.7;">
+                    <p style="color: var(--text-primary); font-size: 1.05rem; line-height: 1.7;">
                         From counsel on cross-border financial systems and fintech narrative building to executive positioning and multi-stakeholder advocacy, our focus has remained fixed on delivering clear, measurable influence where communication meets business policy.
                     </p>
                 </div>
                 <div>
                     <div class="kicker">Partner Ecosystem</div>
                     <h2 class="section-title">Serving Our Clients</h2>
-                    <p style="color: #a0a0a0; font-size: 1.05rem; line-height: 1.7; margin-bottom: 20px;">
+                    <p style="color: var(--text-primary); font-size: 1.05rem; line-height: 1.7; margin-bottom: 20px;">
                         We serve C-suite executives, sector peak bodies, financial services firms, and growing corporate enterprises. Our client-centric approach ensures direct senior partner involvement on every engagement.
                     </p>
                     <ul class="policy-list">
@@ -290,11 +205,11 @@
                 <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80" alt="Founder & Principal Consultant" class="leadership-img">
                 <div class="leadership-info">
                     <div class="leadership-role">Founder & Principal Consultant</div>
-                    <h3 style="font-size: 1.8rem; color: #ffffff; margin-bottom: 16px;">Ndulwa Rachel Mupela</h3>
-                    <p style="color: #a0a0a0; font-size: 1rem; line-height: 1.6; margin-bottom: 20px;">
+                    <h3 style="font-size: 1.8rem; color: var(--text-dark); margin-bottom: 16px;">Ndulwa Rachel Mupela</h3>
+                    <p style="color: var(--text-primary); font-size: 1rem; line-height: 1.6; margin-bottom: 20px;">
                         Ndulwa Rachel Mupela leads Eightplus Media with an extensive background in strategic corporate communications, public relations, and narrative architecture.
                     </p>
-                    <p style="color: #a0a0a0; font-size: 1rem; line-height: 1.6;">
+                    <p style="color: var(--text-primary); font-size: 1rem; line-height: 1.6;">
                         She has advised leading organizations across financial technology, sector associations, and media publishing, specializing in crisis preparedness, executive authority, and reputation governance.
                     </p>
                 </div>
@@ -302,14 +217,14 @@
         </div>
     </section>
 
-    <!-- Governance, Code of Conduct & Climate Commitments -->
+    <!-- Governance & ESG -->
     <section class="section-padding">
         <div class="container">
             <div class="grid-2">
                 <div>
                     <div class="kicker">Governance & Ethics</div>
                     <h2 class="section-title">Code of Conduct</h2>
-                    <p style="color: #a0a0a0; font-size: 1rem; line-height: 1.6;">
+                    <p style="color: var(--text-primary); font-size: 1rem; line-height: 1.6;">
                         Eightplus Media operates under a strict code of ethics aligned with global professional communication standards (CIPR & IABC). We hold ourselves to uncompromising principles of transparency, confidentiality, and anti-misinformation.
                     </p>
                     <ul class="policy-list">
@@ -321,7 +236,7 @@
                 <div>
                     <div class="kicker">ESG & Sustainability</div>
                     <h2 class="section-title">Climate & ESG Commitments</h2>
-                    <p style="color: #a0a0a0; font-size: 1rem; line-height: 1.6;">
+                    <p style="color: var(--text-primary); font-size: 1rem; line-height: 1.6;">
                         We believe strategic communication plays a vital role in accelerating sustainable economic transition. Eightplus Media is committed to responsible environmental stewardship within our operations and advisory work.
                     </p>
                     <ul class="policy-list">
@@ -350,7 +265,6 @@
             .then(data => {
                 document.getElementById('navbar-container').innerHTML = data;
                 
-                // Smart Auto-Highlighting for Active Page
                 const currentPath = window.location.pathname.split('/').pop() || 'index.html';
                 const links = document.querySelectorAll('.nav-links a');
                 
