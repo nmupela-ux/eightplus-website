@@ -10,28 +10,62 @@
     --accent-cyan: #009BFA;    /* Brand Electric Cyan */
     --accent-aqua: #00ECE7;    /* Brand Vibrant Aqua */
     --border-color: #E5E7EB;   /* Light divider lines */
+    
+    /* Layout Variables */
+    --max-width: 1140px;
+    --nav-height: 80px;
+    --radius-sm: 6px;
+    --radius-md: 8px;
+    --transition-fast: 0.2s ease;
 }
 
 /* 2. RESET & BASE STYLES */
-* {
+*, *::before, *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     color: var(--text-primary);
     background-color: var(--bg-main);
     line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
 }
 
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* 3. REUSABLE COMPONENTS & UTILITIES */
 .container {
-    max-width: 1140px;
+    max-width: var(--max-width);
     margin: 0 auto;
     padding: 0 32px;
 }
 
-/* 3. REUSABLE COMPONENTS */
+.section-padding {
+    padding: 100px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
 .kicker {
     text-transform: uppercase;
     font-size: 0.85rem;
@@ -41,27 +75,6 @@ body {
     margin-bottom: 16px;
 }
 
-.btn {
-    display: inline-block;
-    background-color: var(--accent-royal);
-    color: #ffffff;
-    text-decoration: none;
-    padding: 16px 32px;
-    font-weight: 600;
-    border-radius: 6px;
-    transition: background-color 0.2s ease, transform 0.2s ease;
-    box-shadow: 0 4px 12px rgba(24, 94, 224, 0.25);
-}
-.btn:hover {
-    background-color: var(--accent-cyan);
-    transform: translateY(-2px);
-}
-
-.section-padding {
-    padding: 100px 0;
-    border-bottom: 1px solid var(--border-color);
-}
-
 .section-title {
     font-size: 2.2rem;
     color: var(--text-dark);
@@ -69,14 +82,164 @@ body {
     letter-spacing: -0.5px;
 }
 
-/* Footer */
+.btn {
+    display: inline-block;
+    background-color: var(--accent-royal);
+    color: #ffffff;
+    text-decoration: none;
+    padding: 16px 32px;
+    font-weight: 600;
+    border-radius: var(--radius-sm);
+    transition: background-color var(--transition-fast), transform var(--transition-fast);
+    box-shadow: 0 4px 12px rgba(24, 94, 224, 0.25);
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: var(--accent-cyan);
+    transform: translateY(-2px);
+    color: #ffffff;
+}
+
+/* Grids */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 32px;
+}
+
+/* 4. NAVIGATION BAR STYLES */
+.navbar {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: var(--nav-height);
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border-color);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+}
+
+.nav-container {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--text-dark);
+    letter-spacing: -0.5px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+}
+
+.nav-links a {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    position: relative;
+    padding: 6px 0;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--accent-royal);
+}
+
+/* Active Page Line Indicator */
+.nav-links a.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--accent-royal);
+    border-radius: 2px;
+}
+
+/* 5. CARD COMPONENTS */
+.card {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.card:hover {
+    border-color: #cbd5e1;
+    box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.08);
+}
+
+.card h3 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+}
+
+.card p {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+/* 6. FOOTER STYLES */
 footer {
     padding: 40px 0;
     border-top: 1px solid var(--border-color);
     color: var(--text-muted);
     font-size: 0.9rem;
+    background-color: var(--bg-surface);
+}
+
+footer .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--bg-surface);
+}
+
+/* 7. RESPONSIVE BREAKPOINTS */
+@media (max-width: 768px) {
+    :root {
+        --nav-height: 70px;
+    }
+
+    .container {
+        padding: 0 20px;
+    }
+
+    .nav-links {
+        gap: 18px;
+    }
+
+    .nav-links a {
+        font-size: 0.875rem;
+    }
+
+    .section-padding {
+        padding: 60px 0;
+    }
+
+    footer .container {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+    }
 }
